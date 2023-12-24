@@ -1,0 +1,114 @@
+/* src/App.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Container for the entire app */
+.App {
+  position: relative;
+}
+
+/* Container for each pair of diamond and line images */
+.image-pair {
+  display: flex;
+  position: relative; /* Ensure proper positioning */
+}
+
+/* Container for each individual image */
+.image-container {
+  position: absolute;
+  width: 135px; /* Adjust width as needed for diamond images */
+  height: 130px;
+}
+
+/* Specific styles for line images */
+.line-image-container {
+  width: 300px; /* Adjust line image width as needed */
+  z-index: 1;
+}
+
+.diamond-image-container {
+  z-index: 2; /* Higher z-index for diamond images */
+}
+
+/* Default and hovered images for each pair */
+.default-image,
+.hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Maintains aspect ratio */
+  height: 100%; /* Maintains aspect ratio */
+  object-fit: contain; /* Change to 'contain' if you want to see the whole image */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hover-image {
+  opacity: 0;
+}
+
+.image-container:hover .default-image {
+  opacity: 0;
+}
+
+.image-container:hover .hover-image {
+  opacity: 1;
+}
+
+/* Container for the centered image */
+.center-image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Styles for the centered image */
+.center-image {
+  width: 160px; /* Adjust centered image width as needed */
+  height: 160px; /* Adjust centered image height as needed */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.popup-container {
+  position: absolute; /* Position relative to its parent .image-pair container */
+  z-index: 1; /* Ensure it's above other elements */
+}
+
+.popup-image {
+  max-width: 250px; /* Adjust popup image width as needed */
+  object-fit: contain; /* Change to 'contain' if needed */
+}
+
+.popup-image:hover {
+  display: none;
+}
+
+/* Styles for the floating image */
+.floating-container {
+  position: absolute; /* Position relative to its parent .image-pair container */
+  z-index: 5; /* Adjust as needed, should be below popup */
+}
+
+.floating-image {
+  max-width: 150px; /* Adjust floating image width as needed */
+  object-fit: contain; /* Change to 'contain' if needed */
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+/* Breathing effect animation */
+@keyframes breathingAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
